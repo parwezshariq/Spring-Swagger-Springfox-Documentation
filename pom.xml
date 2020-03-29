@@ -69,6 +69,11 @@
             <artifactId>springfox-data-rest</artifactId>
             <version>${io.springfox.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>${io.springfox.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.hsqldb</groupId>

@@ -21,6 +21,12 @@ public class Employee {
     @ApiModelProperty(value="first and last name")
     public String name;
     public String title;
+
+    // @ApiModelProperty overrides default bean validator,
+    // thus @NotNull will not be part of swagger document. (No red asterisk mark)
+    // Use required field to mark required in swagger document. (red asterisk mark)
+    //@ApiModelProperty(value = "Description about department")
+    @ApiModelProperty(value = "Description about department", required = true)
     @NotNull
     public String department;
 
