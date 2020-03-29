@@ -1,5 +1,6 @@
 package com.shariqparwez.employee;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -17,6 +18,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
 
+    @ApiModelProperty(value="first and last name")
     public String name;
     public String title;
     @NotNull
