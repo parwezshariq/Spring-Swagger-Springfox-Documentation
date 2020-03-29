@@ -24,7 +24,9 @@ public class ApplicationSwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                //.paths(PathSelectors.any())
+                //.paths(PathSelectors.ant("/v1/**"))
+                .paths(PathSelectors.ant("/v2/**"))
                 .build()
                 .apiInfo(getApiInfo());
     }
@@ -33,7 +35,8 @@ public class ApplicationSwaggerConfig {
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
                 .title("Employee API")
-                .version("1.0")
+                //.version("1.0")
+                .version("2.0")
                 .description("API for managing employees.")
                 .contact(new Contact("Shariq Parwez", "https://github.com/parwezshariq", "shariqparwez@outlook.com"))
                 .license("Apache License Version 2.0")
