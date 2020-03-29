@@ -14,4 +14,25 @@ public class ExampleService {
 
         return "Your schedule is M-F 9-5";
     }
+
+    @ApiOperation(value = "Get the default schedule for employees", notes = "All employees share the same schedule.")
+    @RequestMapping(value = "/employeev1/schedule", method = RequestMethod.GET)
+    public String getScheduleOne() {
+
+        return "Your v1 schedule is M-F 9-5";
+    }
+
+    @ApiOperation(value = "Get the default schedule for employees", notes = "All employees share the same schedule.")
+    @RequestMapping(value = "/employeev2/schedule", method = RequestMethod.GET)
+    public String getScheduleTwo() {
+
+        return "Your v2 schedule is M-W 9-9";
+    }
+
+    @ApiOperation(value = "Get the default schedule for employees", notes = "All employees share the same schedule.")
+    @RequestMapping(value = "/employeev3/schedule", method = RequestMethod.GET)
+    public String getScheduleThree() {
+
+        return "Your v3 schedule is T-F 8-6";
+    }
 }

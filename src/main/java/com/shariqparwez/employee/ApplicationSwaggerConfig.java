@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @Import({SpringDataRestConfiguration.class, BeanValidatorPluginsConfiguration.class})
 public class ApplicationSwaggerConfig {
 
-    @Bean
+    /*@Bean
     public Docket employeeApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
@@ -37,6 +37,50 @@ public class ApplicationSwaggerConfig {
                 .title("Employee API")
                 //.version("1.0")
                 .version("2.0")
+                .description("API for managing employees.")
+                .contact(new Contact("Shariq Parwez", "https://github.com/parwezshariq", "shariqparwez@outlook.com"))
+                .license("Apache License Version 2.0")
+                .build();
+    }*/
+
+    @Bean
+    public Docket employeeApiOne() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("employee-api-v1")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.shariqparwez.employee"))
+                .paths(PathSelectors.ant("/employeev1/**"))
+                .build()
+                .apiInfo(getApiInfo("v1"));
+    }
+
+    @Bean
+    public Docket employeeApiTwo() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("employee-api-v2")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.shariqparwez.employee"))
+                .paths(PathSelectors.ant("/employeev2/**"))
+                .build()
+                .apiInfo(getApiInfo("v2"));
+    }
+
+    @Bean
+    public Docket employeeApiThree() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("employee-api-v3")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.shariqparwez.employee"))
+                .paths(PathSelectors.ant("/employeev3/**"))
+                .build()
+                .apiInfo(getApiInfo("v3"));
+    }
+
+    // Create api metadata that goes at the top of the generated page
+    private ApiInfo getApiInfo(String version) {
+        return new ApiInfoBuilder()
+                .title("Employee API")
+                .version(version)
                 .description("API for managing employees.")
                 .contact(new Contact("Shariq Parwez", "https://github.com/parwezshariq", "shariqparwez@outlook.com"))
                 .license("Apache License Version 2.0")
